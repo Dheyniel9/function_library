@@ -19,11 +19,11 @@
     <!-- Sidebar -->
     <div class="fixed inset-y-0 left-0 z-40 w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out md:translate-x-0"
          :class="{'translate-x-0': sidebarOpen, '-translate-x-full': !sidebarOpen}">
-        
+
         <!-- Sidebar Header -->
         <div class="p-4 border-b border-gray-200">
             <h1 class="text-xl font-bold text-gray-800">Function Library</h1>
-            <p class="text-sm text-gray-600">25 Useful Functions</p>
+            <p class="text-sm text-gray-600">30+ Useful Functions</p>
         </div>
 
         <!-- Sidebar Navigation -->
@@ -144,6 +144,58 @@
                     <span>Color Picker</span>
                 </a>
             </div>
+
+            <!-- Container Utilities -->
+            <div class="pt-4">
+                <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Container Utilities</h3>
+                <a href="{{ route('functions.container-layouts') }}" class="flex items-center space-x-3 p-2 text-gray-700 rounded-lg hover:bg-gray-100 transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path>
+                    </svg>
+                    <span>Container Layouts</span>
+                </a>
+                <a href="{{ route('functions.flexbox-container') }}" class="flex items-center space-x-3 p-2 text-gray-700 rounded-lg hover:bg-gray-100 transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
+                    </svg>
+                    <span>Flexbox Container</span>
+                </a>
+                <a href="{{ route('functions.grid-container') }}" class="flex items-center space-x-3 p-2 text-gray-700 rounded-lg hover:bg-gray-100 transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
+                    </svg>
+                    <span>Grid Container</span>
+                </a>
+                <a href="{{ route('functions.responsive-container') }}" class="flex items-center space-x-3 p-2 text-gray-700 rounded-lg hover:bg-gray-100 transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                    </svg>
+                    <span>Responsive Container</span>
+                </a>
+            </div>
+
+            <!-- Table Utilities -->
+            <div class="pt-4">
+                <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Table Utilities</h3>
+                <a href="{{ route('functions.advanced-table') }}" class="flex items-center space-x-3 p-2 text-gray-700 rounded-lg hover:bg-gray-100 transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                    </svg>
+                    <span>Advanced Table</span>
+                </a>
+                <a href="{{ route('functions.editable-table') }}" class="flex items-center space-x-3 p-2 text-gray-700 rounded-lg hover:bg-gray-100 transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                    <span>Editable Table</span>
+                </a>
+                <a href="{{ route('functions.comparison-table') }}" class="flex items-center space-x-3 p-2 text-gray-700 rounded-lg hover:bg-gray-100 transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                    </svg>
+                    <span>Comparison Table</span>
+                </a>
+            </div>
         </nav>
     </div>
 
@@ -185,21 +237,21 @@
         function showNotification(type, message, duration = 5000) {
             const container = document.getElementById('notification-container');
             const notification = document.createElement('div');
-            
+
             const colors = {
                 success: 'bg-green-500',
                 error: 'bg-red-500',
                 warning: 'bg-yellow-500',
                 info: 'bg-blue-500'
             };
-            
+
             const icons = {
                 success: `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>`,
                 error: `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>`,
                 warning: `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>`,
                 info: `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`
             };
-            
+
             notification.className = `${colors[type]} text-white p-4 rounded-lg shadow-lg flex items-center space-x-3 transform transition-all duration-300 translate-x-full min-w-80`;
             notification.innerHTML = `
                 <div class="flex items-center space-x-3">
@@ -212,20 +264,20 @@
                     </svg>
                 </button>
             `;
-            
+
             container.appendChild(notification);
-            
+
             // Animate in
             setTimeout(() => {
                 notification.classList.remove('translate-x-full');
             }, 100);
-            
+
             // Auto remove
             setTimeout(() => {
                 removeNotification(notification);
             }, duration);
         }
-        
+
         function removeNotification(element) {
             if (element.tagName === 'BUTTON') {
                 element = element.parentElement;
@@ -235,7 +287,7 @@
                 element.remove();
             }, 300);
         }
-        
+
         // Global notification functions
         window.showSuccess = (message) => showNotification('success', message);
         window.showError = (message) => showNotification('error', message);

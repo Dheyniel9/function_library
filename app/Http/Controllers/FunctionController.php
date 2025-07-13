@@ -312,6 +312,104 @@ class FunctionController extends Controller
         return view('functions.color-picker');
     }
 
+    // Container utility functions
+    public function containerLayouts()
+    {
+        return view('functions.container-layouts');
+    }
+
+    public function flexboxContainer()
+    {
+        return view('functions.flexbox-container');
+    }
+
+    public function gridContainer()
+    {
+        return view('functions.grid-container');
+    }
+
+    public function responsiveContainer()
+    {
+        return view('functions.responsive-container');
+    }
+
+    // Table utility functions
+    public function advancedTable()
+    {
+        $tableData = [
+            ['id' => 1, 'name' => 'John Doe', 'email' => 'john@example.com', 'department' => 'IT', 'salary' => 75000, 'hire_date' => '2020-01-15', 'status' => 'Active'],
+            ['id' => 2, 'name' => 'Jane Smith', 'email' => 'jane@example.com', 'department' => 'HR', 'salary' => 68000, 'hire_date' => '2021-03-22', 'status' => 'Active'],
+            ['id' => 3, 'name' => 'Bob Johnson', 'email' => 'bob@example.com', 'department' => 'Finance', 'salary' => 82000, 'hire_date' => '2019-11-10', 'status' => 'Active'],
+            ['id' => 4, 'name' => 'Alice Brown', 'email' => 'alice@example.com', 'department' => 'Marketing', 'salary' => 71000, 'hire_date' => '2022-05-08', 'status' => 'Inactive'],
+            ['id' => 5, 'name' => 'Charlie Wilson', 'email' => 'charlie@example.com', 'department' => 'IT', 'salary' => 79000, 'hire_date' => '2021-09-12', 'status' => 'Active'],
+            ['id' => 6, 'name' => 'Diana Prince', 'email' => 'diana@example.com', 'department' => 'HR', 'salary' => 73000, 'hire_date' => '2020-07-30', 'status' => 'Active'],
+            ['id' => 7, 'name' => 'Edward Davis', 'email' => 'edward@example.com', 'department' => 'Finance', 'salary' => 85000, 'hire_date' => '2018-12-01', 'status' => 'Active'],
+            ['id' => 8, 'name' => 'Fiona Green', 'email' => 'fiona@example.com', 'department' => 'Marketing', 'salary' => 69000, 'hire_date' => '2023-02-14', 'status' => 'Active'],
+        ];
+
+        return view('functions.advanced-table', compact('tableData'));
+    }
+
+    public function editableTable()
+    {
+        $editableData = [
+            ['id' => 1, 'product' => 'Laptop', 'price' => 999, 'quantity' => 10, 'category' => 'Electronics'],
+            ['id' => 2, 'product' => 'Mouse', 'price' => 25, 'quantity' => 50, 'category' => 'Electronics'],
+            ['id' => 3, 'product' => 'Book', 'price' => 15, 'quantity' => 100, 'category' => 'Education'],
+            ['id' => 4, 'product' => 'Pen', 'price' => 2, 'quantity' => 200, 'category' => 'Office'],
+            ['id' => 5, 'product' => 'Chair', 'price' => 150, 'quantity' => 25, 'category' => 'Furniture'],
+        ];
+
+        return view('functions.editable-table', compact('editableData'));
+    }
+
+    public function comparisionTable()
+    {
+        $plans = [
+            [
+                'name' => 'Basic',
+                'price' => 9.99,
+                'features' => [
+                    'storage' => '10GB',
+                    'bandwidth' => '100GB',
+                    'email' => '5 accounts',
+                    'support' => 'Email',
+                    'ssl' => true,
+                    'backup' => false,
+                    'analytics' => false
+                ]
+            ],
+            [
+                'name' => 'Professional',
+                'price' => 19.99,
+                'features' => [
+                    'storage' => '50GB',
+                    'bandwidth' => '500GB',
+                    'email' => '25 accounts',
+                    'support' => 'Email & Chat',
+                    'ssl' => true,
+                    'backup' => true,
+                    'analytics' => true
+                ]
+            ],
+            [
+                'name' => 'Enterprise',
+                'price' => 49.99,
+                'features' => [
+                    'storage' => 'Unlimited',
+                    'bandwidth' => 'Unlimited',
+                    'email' => 'Unlimited',
+                    'support' => '24/7 Phone',
+                    'ssl' => true,
+                    'backup' => true,
+                    'analytics' => true
+                ]
+            ]
+        ];
+
+        return view('functions.comparison-table', compact('plans'));
+    }
+
     // Main index function to list all functions
     public function index()
     {
@@ -347,6 +445,13 @@ class FunctionController extends Controller
             ['name' => 'Calculator', 'route' => 'functions.calculator', 'description' => 'Basic calculator functionality'],
             ['name' => 'QR Generator', 'route' => 'functions.qr-generator', 'description' => 'Generate QR codes for URLs and text'],
             ['name' => 'Color Picker', 'route' => 'functions.color-picker', 'description' => 'Select and customize colors'],
+            ['name' => 'Container Layouts', 'route' => 'functions.container-layouts', 'description' => 'Various container layout examples'],
+            ['name' => 'Flexbox Container', 'route' => 'functions.flexbox-container', 'description' => 'Responsive flexbox container'],
+            ['name' => 'Grid Container', 'route' => 'functions.grid-container', 'description' => 'CSS grid layout examples'],
+            ['name' => 'Responsive Container', 'route' => 'functions.responsive-container', 'description' => 'Containers that adapt to screen size'],
+            ['name' => 'Advanced Table', 'route' => 'functions.advanced-table', 'description' => 'Table with advanced features and functionalities'],
+            ['name' => 'Editable Table', 'route' => 'functions.editable-table', 'description' => 'Tables that can be edited inline'],
+            ['name' => 'Comparison Table', 'route' => 'functions.comparison-table', 'description' => 'Compare different items or plans'],
         ];
 
         return view('functions.index', compact('functions'));

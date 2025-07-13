@@ -31,6 +31,17 @@ Route::get('/qr-code', [FunctionController::class, 'qrCode'])->name('functions.q
 Route::get('/qr-generator', [FunctionController::class, 'qrGenerator'])->name('functions.qr-generator');
 Route::get('/calculator', [FunctionController::class, 'calculator'])->name('functions.calculator');
 Route::get('/color-picker', [FunctionController::class, 'colorPicker'])->name('functions.color-picker');
+
+// Container utility routes
+Route::get('/container-layouts', [FunctionController::class, 'containerLayouts'])->name('functions.container-layouts');
+Route::get('/flexbox-container', [FunctionController::class, 'flexboxContainer'])->name('functions.flexbox-container');
+Route::get('/grid-container', [FunctionController::class, 'gridContainer'])->name('functions.grid-container');
+Route::get('/responsive-container', [FunctionController::class, 'responsiveContainer'])->name('functions.responsive-container');
+
+// Table utility routes
+Route::get('/advanced-table', [FunctionController::class, 'advancedTable'])->name('functions.advanced-table');
+Route::get('/editable-table', [FunctionController::class, 'editableTable'])->name('functions.editable-table');
+Route::get('/comparison-table', [FunctionController::class, 'comparisionTable'])->name('functions.comparison-table');
 Route::get('/breadcrumb', [FunctionController::class, 'breadcrumb'])->name('functions.breadcrumb');
 Route::get('/dark-mode', [FunctionController::class, 'darkMode'])->name('functions.dark-mode');
 
