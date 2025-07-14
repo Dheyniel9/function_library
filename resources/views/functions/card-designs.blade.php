@@ -3,53 +3,53 @@
 @section('title', 'Card Designs')
 
 @section('content')
-<div class="max-w-7xl mx-auto">
-    <div class="mb-8">
-        <h1 class="text-3xl font-bold text-gray-800 mb-4">Card Design Collection</h1>
-        <p class="text-gray-600">Explore various card designs and layouts for your applications</p>
+<div style="max-width: 1200px; margin: 0 auto; padding: 20px;">
+    <div style="margin-bottom: 30px;">
+        <h1 style="font-size: 28px; font-weight: 700; color: #1a1a1a; margin-bottom: 15px;">Card Design Collection</h1>
+        <p style="color: #666; font-size: 16px;">Explore various card designs and layouts for your applications</p>
     </div>
 
     <!-- Card Style Selector -->
-    <div class="bg-white rounded-lg shadow-md p-6 mb-8">
-        <h2 class="text-xl font-semibold text-gray-800 mb-4">Card Styles</h2>
-        <div class="flex flex-wrap gap-2 mb-4">
-            <button onclick="switchCardStyle('default')" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600" id="card-default">Default</button>
-            <button onclick="switchCardStyle('minimalistic')" class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600" id="card-minimalistic">Minimalistic</button>
-            <button onclick="switchCardStyle('modern')" class="px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-600" id="card-modern">Modern</button>
-            <button onclick="switchCardStyle('glassmorphism')" class="px-4 py-2 bg-indigo-500 text-white rounded hover:bg-indigo-600" id="card-glassmorphism">Glassmorphism</button>
-            <button onclick="switchCardStyle('neumorphism')" class="px-4 py-2 bg-pink-500 text-white rounded hover:bg-pink-600" id="card-neumorphism">Neumorphism</button>
-            <button onclick="switchCardStyle('dark')" class="px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-900" id="card-dark">Dark</button>
+    <div style="background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 25px; margin-bottom: 30px;">
+        <h2 style="font-size: 20px; font-weight: 600; color: #1a1a1a; margin-bottom: 20px;">Card Styles</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px;">
+            <button onclick="switchCardStyle('default')" id="card-default" style="padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 14px; font-weight: 500;">Default</button>
+            <button onclick="switchCardStyle('minimalistic')" id="card-minimalistic" style="padding: 10px 20px; background: #6c757d; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 14px; font-weight: 500;">Minimalistic</button>
+            <button onclick="switchCardStyle('modern')" id="card-modern" style="padding: 10px 20px; background: #6f42c1; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 14px; font-weight: 500;">Modern</button>
+            <button onclick="switchCardStyle('glassmorphism')" id="card-glassmorphism" style="padding: 10px 20px; background: #6610f2; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 14px; font-weight: 500;">Glassmorphism</button>
+            <button onclick="switchCardStyle('neumorphism')" id="card-neumorphism" style="padding: 10px 20px; background: #e83e8c; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 14px; font-weight: 500;">Neumorphism</button>
+            <button onclick="switchCardStyle('dark')" id="card-dark" style="padding: 10px 20px; background: #343a40; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 14px; font-weight: 500;">Dark</button>
         </div>
     </div>
 
     <!-- Card Showcase -->
-    <div id="card-showcase" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+    <div  style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 30px;">
         @foreach($cardData as $card)
-        <div class="card-item d-flex flex-col bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:scale-105 p-2">
-            <div class="card-image">
-                <img src="{{ $card['image'] }}" alt="{{ $card['title'] }}" class="w-full h-48 object-cover">
-                <div class="card-badge">{{ $card['badge'] }}</div>
+        <div class="card-item" style="background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); overflow: hidden; transition: transform 0.3s ease;">
+            <div class="card-image" style="position: relative;">
+                <img src="{{ $card['image'] }}" alt="{{ $card['title'] }}" style="width: 100%; height: 200px; object-fit: cover;">
+                <div class="card-badge" style="position: absolute; top: 10px; right: 10px; background: #dc3545; color: white; padding: 5px 10px; border-radius: 15px; font-size: 12px; font-weight: 600;">{{ $card['badge'] }}</div>
             </div>
-            <div class="card-content">
-                <div class="card-header">
-                    <h3 class="card-title">{{ $card['title'] }}</h3>
-                    <p class="card-subtitle">{{ $card['subtitle'] }}</p>
+            <div class="card-content" style="padding: 20px;">
+                <div class="card-header" style="margin-bottom: 10px;">
+                    <h3 class="card-title" style="font-size: 18px; font-weight: 600; color: #1a1a1a; margin: 0 0 5px 0;">{{ $card['title'] }}</h3>
+                    <p class="card-subtitle" style="font-size: 14px; color: #666; margin: 0;">{{ $card['subtitle'] }}</p>
                 </div>
-                <p class="card-description">{{ $card['description'] }}</p>
-                <div class="card-rating">
+                <p class="card-description" style="color: #666; font-size: 14px; margin-bottom: 15px; line-height: 1.5;">{{ $card['description'] }}</p>
+                <div class="card-rating" style="display: flex; align-items: center; margin-bottom: 15px;">
                     @for($i = 1; $i <= 5; $i++)
-                        <span class="star {{ $i <= $card['rating'] ? 'active' : '' }}">★</span>
+                        <span class="star" style="color: {{ $i <= $card['rating'] ? '#ffc107' : '#e9ecef' }}; font-size: 16px; margin-right: 2px;">★</span>
                     @endfor
-                    <span class="rating-text">{{ $card['rating'] }}</span>
+                    <span class="rating-text" style="margin-left: 8px; font-size: 14px; color: #666;">{{ $card['rating'] }}</span>
                 </div>
-                <div class="card-tags">
+                <div class="card-tags" style="display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 15px;">
                     @foreach($card['tags'] as $tag)
-                    <span class="card-tag">{{ $tag }}</span>
+                    <span class="card-tag" style="background: #f8f9fa; color: #495057; padding: 4px 8px; border-radius: 12px; font-size: 12px;">{{ $tag }}</span>
                     @endforeach
                 </div>
-                <div class="card-footer">
-                    <div class="card-price">{{ $card['price'] }}</div>
-                    <button class="card-button">Buy Now</button>
+                <div class="card-footer" style="display: flex; justify-content: space-between; align-items: center;">
+                    <div class="card-price" style="font-size: 20px; font-weight: 700; color: #28a745;">{{ $card['price'] }}</div>
+                    <button class="card-button" style="background: #007bff; color: white; padding: 8px 16px; border: none; border-radius: 5px; cursor: pointer; font-size: 14px; font-weight: 500; transition: background 0.3s ease;">Buy Now</button>
                 </div>
             </div>
         </div>
@@ -57,156 +57,156 @@
     </div>
 
     <!-- Additional Card Variants -->
-    <div class="space-y-8">
+    <div style="margin-bottom: 30px;">
         <!-- Profile Cards -->
-        <div class="bg-white rounded-lg shadow-md p-6">
-            <h2 class="text-2xl font-semibold text-gray-800 mb-6">Profile Cards</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="profile-card">
-                    <div class="profile-image">
-                        <img src="https://picsum.photos/100/100?random=10" alt="Profile" class="w-20 h-20 rounded-full mx-auto">
+        <div style="background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 25px; margin-bottom: 30px;">
+            <h2 style="font-size: 24px; font-weight: 600; color: #1a1a1a; margin-bottom: 25px;">Profile Cards</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                <div class="profile-card" style="background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 25px; text-align: center;">
+                    <div class="profile-image" style="margin-bottom: 20px;">
+                        <img src="https://picsum.photos/100/100?random=10" alt="Profile" style="width: 80px; height: 80px; border-radius: 50%; margin: 0 auto; display: block;">
                     </div>
                     <div class="profile-info">
-                        <h3 class="text-lg font-semibold text-gray-800">John Doe</h3>
-                        <p class="text-sm text-gray-600">Frontend Developer</p>
-                        <div class="social-links">
-                            <a href="#" class="social-link">LinkedIn</a>
-                            <a href="#" class="social-link">Twitter</a>
-                            <a href="#" class="social-link">GitHub</a>
+                        <h3 style="font-size: 18px; font-weight: 600; color: #1a1a1a; margin: 0 0 5px 0;">John Doe</h3>
+                        <p style="font-size: 14px; color: #666; margin: 0 0 20px 0;">Frontend Developer</p>
+                        <div class="social-links" style="display: flex; justify-content: center; gap: 15px; margin-bottom: 20px;">
+                            <a href="#" class="social-link" style="color: #007bff; text-decoration: none; font-size: 14px;">LinkedIn</a>
+                            <a href="#" class="social-link" style="color: #007bff; text-decoration: none; font-size: 14px;">Twitter</a>
+                            <a href="#" class="social-link" style="color: #007bff; text-decoration: none; font-size: 14px;">GitHub</a>
                         </div>
-                        <button class="profile-button">Follow</button>
+                        <button class="profile-button" style="background: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 14px; font-weight: 500;">Follow</button>
                     </div>
                 </div>
 
-                <div class="profile-card">
-                    <div class="profile-image">
-                        <img src="https://picsum.photos/100/100?random=11" alt="Profile" class="w-20 h-20 rounded-full mx-auto">
+                <div class="profile-card" style="background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 25px; text-align: center;">
+                    <div class="profile-image" style="margin-bottom: 20px;">
+                        <img src="https://picsum.photos/100/100?random=11" alt="Profile" style="width: 80px; height: 80px; border-radius: 50%; margin: 0 auto; display: block;">
                     </div>
                     <div class="profile-info">
-                        <h3 class="text-lg font-semibold text-gray-800">Jane Smith</h3>
-                        <p class="text-sm text-gray-600">UI/UX Designer</p>
-                        <div class="social-links">
-                            <a href="#" class="social-link">Dribbble</a>
-                            <a href="#" class="social-link">Behance</a>
-                            <a href="#" class="social-link">Instagram</a>
+                        <h3 style="font-size: 18px; font-weight: 600; color: #1a1a1a; margin: 0 0 5px 0;">Jane Smith</h3>
+                        <p style="font-size: 14px; color: #666; margin: 0 0 20px 0;">UI/UX Designer</p>
+                        <div class="social-links" style="display: flex; justify-content: center; gap: 15px; margin-bottom: 20px;">
+                            <a href="#" class="social-link" style="color: #007bff; text-decoration: none; font-size: 14px;">Dribbble</a>
+                            <a href="#" class="social-link" style="color: #007bff; text-decoration: none; font-size: 14px;">Behance</a>
+                            <a href="#" class="social-link" style="color: #007bff; text-decoration: none; font-size: 14px;">Instagram</a>
                         </div>
-                        <button class="profile-button">Follow</button>
+                        <button class="profile-button" style="background: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 14px; font-weight: 500;">Follow</button>
                     </div>
                 </div>
 
-                <div class="profile-card">
-                    <div class="profile-image">
-                        <img src="https://picsum.photos/100/100?random=12" alt="Profile" class="w-20 h-20 rounded-full mx-auto">
+                <div class="profile-card" style="background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 25px; text-align: center;">
+                    <div class="profile-image" style="margin-bottom: 20px;">
+                        <img src="https://picsum.photos/100/100?random=12" alt="Profile" style="width: 80px; height: 80px; border-radius: 50%; margin: 0 auto; display: block;">
                     </div>
                     <div class="profile-info">
-                        <h3 class="text-lg font-semibold text-gray-800">Bob Johnson</h3>
-                        <p class="text-sm text-gray-600">Full Stack Developer</p>
-                        <div class="social-links">
-                            <a href="#" class="social-link">GitHub</a>
-                            <a href="#" class="social-link">Stack Overflow</a>
-                            <a href="#" class="social-link">Medium</a>
+                        <h3 style="font-size: 18px; font-weight: 600; color: #1a1a1a; margin: 0 0 5px 0;">Bob Johnson</h3>
+                        <p style="font-size: 14px; color: #666; margin: 0 0 20px 0;">Full Stack Developer</p>
+                        <div class="social-links" style="display: flex; justify-content: center; gap: 15px; margin-bottom: 20px;">
+                            <a href="#" class="social-link" style="color: #007bff; text-decoration: none; font-size: 14px;">GitHub</a>
+                            <a href="#" class="social-link" style="color: #007bff; text-decoration: none; font-size: 14px;">Stack Overflow</a>
+                            <a href="#" class="social-link" style="color: #007bff; text-decoration: none; font-size: 14px;">Medium</a>
                         </div>
-                        <button class="profile-button">Follow</button>
+                        <button class="profile-button" style="background: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 14px; font-weight: 500;">Follow</button>
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- Statistic Cards -->
-        <div class="bg-white rounded-lg shadow-md p-6">
-            <h2 class="text-2xl font-semibold text-gray-800 mb-6">Statistic Cards</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <svg class="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div style="background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 25px; margin-bottom: 30px;">
+            <h2 style="font-size: 24px; font-weight: 600; color: #1a1a1a; margin-bottom: 25px;">Statistic Cards</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                <div class="stat-card" style="background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 25px; display: flex; align-items: center;">
+                    <div class="stat-icon" style="margin-right: 20px;">
+                        <svg style="width: 32px; height: 32px; color: #007bff;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
                         </svg>
                     </div>
                     <div class="stat-info">
-                        <h3 class="stat-number">12,345</h3>
-                        <p class="stat-label">Users</p>
-                        <p class="stat-change positive">+12%</p>
+                        <h3 class="stat-number" style="font-size: 24px; font-weight: 700; color: #1a1a1a; margin: 0;">12,345</h3>
+                        <p class="stat-label" style="font-size: 14px; color: #666; margin: 0;">Users</p>
+                        <p class="stat-change positive" style="font-size: 14px; font-weight: 500; color: #28a745; margin: 0;">+12%</p>
                     </div>
                 </div>
 
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="stat-card" style="background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 25px; display: flex; align-items: center;">
+                    <div class="stat-icon" style="margin-right: 20px;">
+                        <svg style="width: 32px; height: 32px; color: #28a745;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
                         </svg>
                     </div>
                     <div class="stat-info">
-                        <h3 class="stat-number">$89,432</h3>
-                        <p class="stat-label">Revenue</p>
-                        <p class="stat-change positive">+8%</p>
+                        <h3 class="stat-number" style="font-size: 24px; font-weight: 700; color: #1a1a1a; margin: 0;">$89,432</h3>
+                        <p class="stat-label" style="font-size: 14px; color: #666; margin: 0;">Revenue</p>
+                        <p class="stat-change positive" style="font-size: 14px; font-weight: 500; color: #28a745; margin: 0;">+8%</p>
                     </div>
                 </div>
 
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <svg class="w-8 h-8 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="stat-card" style="background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 25px; display: flex; align-items: center;">
+                    <div class="stat-icon" style="margin-right: 20px;">
+                        <svg style="width: 32px; height: 32px; color: #ffc107;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4l1-12z"></path>
                         </svg>
                     </div>
                     <div class="stat-info">
-                        <h3 class="stat-number">2,156</h3>
-                        <p class="stat-label">Orders</p>
-                        <p class="stat-change positive">+15%</p>
+                        <h3 class="stat-number" style="font-size: 24px; font-weight: 700; color: #1a1a1a; margin: 0;">2,156</h3>
+                        <p class="stat-label" style="font-size: 14px; color: #666; margin: 0;">Orders</p>
+                        <p class="stat-change positive" style="font-size: 14px; font-weight: 500; color: #28a745; margin: 0;">+15%</p>
                     </div>
                 </div>
 
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <svg class="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="stat-card" style="background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 25px; display: flex; align-items: center;">
+                    <div class="stat-icon" style="margin-right: 20px;">
+                        <svg style="width: 32px; height: 32px; color: #dc3545;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
                         </svg>
                     </div>
                     <div class="stat-info">
-                        <h3 class="stat-number">94.3%</h3>
-                        <p class="stat-label">Satisfaction</p>
-                        <p class="stat-change negative">-2%</p>
+                        <h3 class="stat-number" style="font-size: 24px; font-weight: 700; color: #1a1a1a; margin: 0;">94.3%</h3>
+                        <p class="stat-label" style="font-size: 14px; color: #666; margin: 0;">Satisfaction</p>
+                        <p class="stat-change negative" style="font-size: 14px; font-weight: 500; color: #dc3545; margin: 0;">-2%</p>
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- Feature Cards -->
-        <div class="bg-white rounded-lg shadow-md p-6">
-            <h2 class="text-2xl font-semibold text-gray-800 mb-6">Feature Cards</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg class="w-12 h-12 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div style="background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 25px;">
+            <h2 style="font-size: 24px; font-weight: 600; color: #1a1a1a; margin-bottom: 25px;">Feature Cards</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                <div class="feature-card" style="background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 25px; text-align: center;">
+                    <div class="feature-icon" style="margin-bottom: 20px;">
+                        <svg style="width: 48px; height: 48px; color: #007bff; margin: 0 auto; display: block;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                         </svg>
                     </div>
                     <div class="feature-content">
-                        <h3 class="feature-title">Lightning Fast</h3>
-                        <p class="feature-description">Optimized performance for blazing fast user experience</p>
+                        <h3 class="feature-title" style="font-size: 18px; font-weight: 600; color: #1a1a1a; margin: 0 0 10px 0;">Lightning Fast</h3>
+                        <p class="feature-description" style="color: #666; font-size: 14px; margin: 0;">Optimized performance for blazing fast user experience</p>
                     </div>
                 </div>
 
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg class="w-12 h-12 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="feature-card" style="background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 25px; text-align: center;">
+                    <div class="feature-icon" style="margin-bottom: 20px;">
+                        <svg style="width: 48px; height: 48px; color: #28a745; margin: 0 auto; display: block;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
                         </svg>
                     </div>
                     <div class="feature-content">
-                        <h3 class="feature-title">Secure</h3>
-                        <p class="feature-description">Enterprise-grade security with advanced encryption</p>
+                        <h3 class="feature-title" style="font-size: 18px; font-weight: 600; color: #1a1a1a; margin: 0 0 10px 0;">Secure</h3>
+                        <p class="feature-description" style="color: #666; font-size: 14px; margin: 0;">Enterprise-grade security with advanced encryption</p>
                     </div>
                 </div>
 
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg class="w-12 h-12 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="feature-card" style="background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 25px; text-align: center;">
+                    <div class="feature-icon" style="margin-bottom: 20px;">
+                        <svg style="width: 48px; height: 48px; color: #6f42c1; margin: 0 auto; display: block;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
                         </svg>
                     </div>
                     <div class="feature-content">
-                        <h3 class="feature-title">User Friendly</h3>
-                        <p class="feature-description">Intuitive interface designed for the best user experience</p>
+                        <h3 class="feature-title" style="font-size: 18px; font-weight: 600; color: #1a1a1a; margin: 0 0 10px 0;">User Friendly</h3>
+                        <p class="feature-description" style="color: #666; font-size: 14px; margin: 0;">Intuitive interface designed for the best user experience</p>
                     </div>
                 </div>
             </div>
@@ -214,9 +214,9 @@
     </div>
 
     <!-- Code Example -->
-    <div class="bg-gray-100 rounded-lg p-6 mt-8">
-        <h2 class="text-xl font-semibold mb-4">Card Implementation Example:</h2>
-        <pre class="bg-gray-800 text-green-400 p-4 rounded overflow-x-auto"><code id="card-code">
+    <div style="background: #f8f9fa; border-radius: 8px; padding: 25px; margin-top: 30px;">
+        <h2 style="font-size: 20px; font-weight: 600; margin-bottom: 20px;">Card Implementation Example:</h2>
+        <pre style="background: #1a1a1a; color: #00ff00; padding: 20px; border-radius: 5px; overflow-x: auto; font-family: monospace; font-size: 14px; line-height: 1.5; margin: 0;"><code id="card-code">
 <!-- Default Card HTML -->
 &lt;div class="card-item"&gt;
     &lt;div class="card-image"&gt;
@@ -240,407 +240,326 @@
 </div>
 
 <style>
-/* Default Card Styles */
-.card-item {
-    @apply bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:scale-105;
+/* Card hover effects */
+.card-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
 }
 
-.card-image {
-    @apply relative;
+.card-button:hover {
+    opacity: 0.9;
 }
 
-.card-badge {
-    @apply absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-full text-xs font-semibold;
+.profile-button:hover {
+    opacity: 0.9;
 }
 
-.card-content {
-    @apply p-4;
+.social-link:hover {
+    opacity: 0.8;
 }
 
-.card-header {
-    @apply mb-2;
-}
-
-.card-title {
-    @apply text-lg font-semibold text-gray-800;
-}
-
-.card-subtitle {
-    @apply text-sm text-gray-600;
-}
-
-.card-description {
-    @apply text-gray-600 text-sm mb-4;
-}
-
-.card-rating {
-    @apply flex items-center mb-4;
-}
-
-.star {
-    @apply text-gray-300 text-lg;
-}
-
-.star.active {
-    @apply text-yellow-400;
-}
-
-.rating-text {
-    @apply ml-2 text-sm text-gray-600;
-}
-
-.card-tags {
-    @apply flex flex-wrap gap-2 mb-4;
-}
-
-.card-tag {
-    @apply bg-gray-100 text-gray-700 px-2 py-1 rounded-full text-xs;
-}
-
-.card-footer {
-    @apply flex justify-between items-center;
-}
-
-.card-price {
-    @apply text-xl font-bold text-green-600;
-}
-
-.card-button {
-    @apply bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600;
-}
-
-/* Minimalistic Card Styles */
+/* Card style variations */
 .card-minimalistic .card-item {
-    @apply bg-white border border-gray-200 rounded-none shadow-none hover:shadow-sm;
+    background: white;
+    border: 1px solid #e9ecef;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.card-minimalistic .card-item:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .card-minimalistic .card-badge {
-    @apply bg-black text-white rounded-none px-3 py-1 text-xs uppercase tracking-wider;
+    background: #000;
+    color: white;
+    border-radius: 0;
+    padding: 8px 12px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .card-minimalistic .card-title {
-    @apply text-base font-normal text-gray-900;
+    font-size: 16px;
+    font-weight: 400;
+    color: #1a1a1a;
 }
 
 .card-minimalistic .card-subtitle {
-    @apply text-xs uppercase tracking-wider text-gray-500;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #6c757d;
 }
 
 .card-minimalistic .card-description {
-    @apply text-gray-700 text-sm leading-relaxed;
+    color: #495057;
+    font-size: 14px;
+    line-height: 1.6;
 }
 
 .card-minimalistic .card-button {
-    @apply bg-black text-white px-6 py-2 rounded-none hover:bg-gray-800 text-sm uppercase tracking-wider;
+    background: #000;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 12px;
 }
 
-/* Modern Card Styles */
 .card-modern .card-item {
-    @apply bg-gradient-to-br from-white to-gray-50 rounded-xl shadow-lg hover:shadow-xl border-0;
+    background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    border: none;
 }
 
 .card-modern .card-badge {
-    @apply bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg px-3 py-1 text-xs font-medium;
+    background: linear-gradient(135deg, #007bff 0%, #6f42c1 100%);
+    color: white;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 12px;
+    font-weight: 500;
 }
 
 .card-modern .card-title {
-    @apply text-xl font-bold text-gray-800;
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1a1a;
 }
 
 .card-modern .card-subtitle {
-    @apply text-sm text-blue-600 font-medium;
+    font-size: 14px;
+    color: #007bff;
+    font-weight: 500;
 }
 
 .card-modern .card-button {
-    @apply bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-2 rounded-lg hover:from-blue-600 hover:to-purple-700 font-medium;
+    background: linear-gradient(135deg, #007bff 0%, #6f42c1 100%);
+    color: white;
+    padding: 10px 25px;
+    border-radius: 8px;
+    font-weight: 500;
 }
 
-/* Glassmorphism Card Styles */
+.card-glassmorphism {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    position: relative;
+    padding: 20px;
+}
+
 .card-glassmorphism .card-item {
-    @apply bg-white bg-opacity-20 backdrop-blur-lg rounded-2xl shadow-2xl border border-white border-opacity-30 hover:bg-opacity-30;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+.card-glassmorphism .card-item:hover {
+    background: rgba(255,255,255,0.3);
 }
 
 .card-glassmorphism .card-badge {
-    @apply bg-white bg-opacity-30 text-gray-800 rounded-full px-3 py-1 text-xs font-medium backdrop-blur-sm;
+    background: rgba(255,255,255,0.3);
+    color: #1a1a1a;
+    border-radius: 20px;
+    padding: 8px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
 }
 
 .card-glassmorphism .card-title {
-    @apply text-lg font-semibold text-gray-800;
+    font-size: 18px;
+    font-weight: 600;
+    color: #1a1a1a;
 }
 
 .card-glassmorphism .card-subtitle {
-    @apply text-sm text-gray-600;
+    font-size: 14px;
+    color: #495057;
 }
 
 .card-glassmorphism .card-button {
-    @apply bg-white bg-opacity-30 text-gray-800 px-6 py-2 rounded-full hover:bg-opacity-50 backdrop-blur-sm;
+    background: rgba(255,255,255,0.3);
+    color: #1a1a1a;
+    padding: 10px 25px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
 }
 
-/* Neumorphism Card Styles */
+.card-glassmorphism .card-button:hover {
+    background: rgba(255,255,255,0.5);
+}
+
 .card-neumorphism .card-item {
-    @apply bg-gray-100 rounded-3xl border-0 hover:shadow-inner;
-    box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+    background: #e0e5ec;
+    border-radius: 25px;
+    box-shadow: 20px 20px 40px #a3b1c6, -20px -20px 40px #ffffff;
+    border: none;
+}
+
+.card-neumorphism .card-item:hover {
+    box-shadow: inset 8px 8px 16px #a3b1c6, inset -8px -8px 16px #ffffff;
 }
 
 .card-neumorphism .card-badge {
-    @apply bg-gray-200 text-gray-700 rounded-full px-3 py-1 text-xs font-medium;
-    box-shadow: inset 5px 5px 10px #bebebe, inset -5px -5px 10px #ffffff;
+    background: #e0e5ec;
+    color: #495057;
+    border-radius: 20px;
+    padding: 8px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    box-shadow: inset 5px 5px 10px #a3b1c6, inset -5px -5px 10px #ffffff;
 }
 
 .card-neumorphism .card-title {
-    @apply text-lg font-semibold text-gray-800;
+    font-size: 18px;
+    font-weight: 600;
+    color: #1a1a1a;
 }
 
 .card-neumorphism .card-button {
-    @apply bg-gray-200 text-gray-800 px-6 py-2 rounded-full hover:bg-gray-300;
-    box-shadow: 5px 5px 10px #bebebe, -5px -5px 10px #ffffff;
+    background: #e0e5ec;
+    color: #1a1a1a;
+    padding: 10px 25px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px #a3b1c6, -5px -5px 10px #ffffff;
 }
 
-/* Dark Card Styles */
+.card-neumorphism .card-button:hover {
+    background: #d1d9e6;
+}
+
 .card-dark .card-item {
-    @apply bg-gray-800 rounded-lg shadow-lg hover:shadow-xl border border-gray-700;
+    background: #2d3748;
+    border-radius: 8px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    border: 1px solid #4a5568;
 }
 
 .card-dark .card-badge {
-    @apply bg-purple-600 text-white rounded-full px-3 py-1 text-xs font-medium;
+    background: #6f42c1;
+    color: white;
+    border-radius: 20px;
+    padding: 8px 12px;
+    font-size: 12px;
+    font-weight: 500;
 }
 
 .card-dark .card-title {
-    @apply text-lg font-semibold text-white;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
 }
 
 .card-dark .card-subtitle {
-    @apply text-sm text-gray-400;
+    font-size: 14px;
+    color: #a0aec0;
 }
 
 .card-dark .card-description {
-    @apply text-gray-300 text-sm;
+    color: #cbd5e0;
+    font-size: 14px;
 }
 
 .card-dark .card-price {
-    @apply text-green-400;
+    color: #48bb78;
 }
 
 .card-dark .card-button {
-    @apply bg-purple-600 text-white px-6 py-2 rounded hover:bg-purple-700;
+    background: #6f42c1;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 5px;
 }
 
-/* Profile Card Styles */
-.profile-card {
-    @apply bg-white rounded-lg shadow-md p-6 text-center;
+.card-dark .card-button:hover {
+    background: #553c9a;
 }
 
-.profile-image {
-    @apply mb-4;
-}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .card-showcase {
+        grid-template-columns: 1fr;
+    }
 
-.profile-info h3 {
-    @apply text-lg font-semibold text-gray-800 mb-1;
-}
+    .stat-card {
+        flex-direction: column;
+        text-align: center;
+    }
 
-.profile-info p {
-    @apply text-gray-600 mb-4;
-}
-
-.social-links {
-    @apply flex justify-center gap-4 mb-4;
-}
-
-.social-link {
-    @apply text-blue-500 hover:text-blue-600 text-sm;
-}
-
-.profile-button {
-    @apply bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600;
-}
-
-/* Statistic Card Styles */
-.stat-card {
-    @apply bg-white rounded-lg shadow-md p-6 flex items-center;
-}
-
-.stat-icon {
-    @apply mr-4;
-}
-
-.stat-number {
-    @apply text-2xl font-bold text-gray-800;
-}
-
-.stat-label {
-    @apply text-sm text-gray-600;
-}
-
-.stat-change {
-    @apply text-sm font-medium;
-}
-
-.stat-change.positive {
-    @apply text-green-500;
-}
-
-.stat-change.negative {
-    @apply text-red-500;
-}
-
-/* Feature Card Styles */
-.feature-card {
-    @apply bg-white rounded-lg shadow-md p-6 text-center;
-}
-
-.feature-icon {
-    @apply mb-4;
-}
-
-.feature-title {
-    @apply text-lg font-semibold text-gray-800 mb-2;
-}
-
-.feature-description {
-    @apply text-gray-600 text-sm;
-}
-
-/* Background for glassmorphism effect */
-.card-glassmorphism {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    min-height: 100vh;
-}
-
-.card-glassmorphism::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    z-index: -1;
+    .stat-icon {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
 }
 </style>
 
 <script>
 function switchCardStyle(style) {
-    const showcase = document.getElementById('card-showcase');
-    const buttons = document.querySelectorAll('[id^="card-"]');
+    var buttons = document.querySelectorAll('[id^="card-"]');
 
     // Remove all card style classes
     showcase.className = showcase.className.replace(/card-\w+/g, '');
 
     // Add new style class
-    showcase.classList.add(`card-${style}`);
+    showcase.classList.add('card-' + style);
 
-    // Update button states
-    buttons.forEach(btn => {
-        btn.classList.remove('bg-blue-600', 'bg-gray-600', 'bg-purple-600', 'bg-indigo-600', 'bg-pink-600', 'bg-gray-900');
-        btn.classList.add('bg-blue-500', 'bg-gray-500', 'bg-purple-500', 'bg-indigo-500', 'bg-pink-500', 'bg-gray-800');
+    // Reset all buttons to default colors
+    buttons.forEach(function(btn) {
+        btn.style.background = getDefaultButtonColor(btn.id);
+        btn.style.opacity = '0.8';
     });
 
     // Highlight active button
-    const activeBtn = document.getElementById(`card-${style}`);
+    var activeBtn = document.getElementById('card-' + style);
     if (activeBtn) {
-        const colorMap = {
-            'default': 'blue',
-            'minimalistic': 'gray',
-            'modern': 'purple',
-            'glassmorphism': 'indigo',
-            'neumorphism': 'pink',
-            'dark': 'gray'
-        };
-        const color = colorMap[style] || 'blue';
-        const shade = style === 'dark' ? '900' : '600';
-
-        activeBtn.classList.remove(`bg-${color}-500`, `bg-${color}-800`);
-        activeBtn.classList.add(`bg-${color}-${shade}`);
+        activeBtn.style.background = getActiveButtonColor(style);
+        activeBtn.style.opacity = '1';
     }
 
     // Update code example
     updateCodeExample(style);
 }
 
+function getDefaultButtonColor(buttonId) {
+    var colorMap = {
+        'card-default': '#007bff',
+        'card-minimalistic': '#6c757d',
+        'card-modern': '#6f42c1',
+        'card-glassmorphism': '#6610f2',
+        'card-neumorphism': '#e83e8c',
+        'card-dark': '#343a40'
+    };
+    return colorMap[buttonId] || '#007bff';
+}
+
+function getActiveButtonColor(style) {
+    var colorMap = {
+        'default': '#0056b3',
+        'minimalistic': '#495057',
+        'modern': '#553c9a',
+        'glassmorphism': '#520dc2',
+        'neumorphism': '#c42a6b',
+        'dark': '#1d2124'
+    };
+    return colorMap[style] || '#0056b3';
+}
+
 function updateCodeExample(style) {
-    const codeElement = document.getElementById('card-code');
-    const examples = {
-        'default': `<!-- Default Card HTML -->
-&lt;div class="card-item"&gt;
-    &lt;div class="card-image"&gt;
-        &lt;img src="image.jpg" alt="Card Image" class="w-full h-48 object-cover"&gt;
-        &lt;div class="card-badge"&gt;New&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class="card-content"&gt;
-        &lt;div class="card-header"&gt;
-            &lt;h3 class="card-title"&gt;Card Title&lt;/h3&gt;
-            &lt;p class="card-subtitle"&gt;Subtitle&lt;/p&gt;
-        &lt;/div&gt;
-        &lt;p class="card-description"&gt;Card description text&lt;/p&gt;
-        &lt;div class="card-footer"&gt;
-            &lt;div class="card-price"&gt;$99.99&lt;/div&gt;
-            &lt;button class="card-button"&gt;Buy Now&lt;/button&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;`,
-        'minimalistic': `<!-- Minimalistic Card CSS -->
-.card-item {
-    @apply bg-white border border-gray-200 rounded-none shadow-none hover:shadow-sm;
-}
-
-.card-badge {
-    @apply bg-black text-white rounded-none px-3 py-1 text-xs uppercase tracking-wider;
-}
-
-.card-button {
-    @apply bg-black text-white px-6 py-2 rounded-none hover:bg-gray-800 text-sm uppercase tracking-wider;
-}`,
-        'modern': `<!-- Modern Card CSS -->
-.card-item {
-    @apply bg-gradient-to-br from-white to-gray-50 rounded-xl shadow-lg hover:shadow-xl border-0;
-}
-
-.card-badge {
-    @apply bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg px-3 py-1 text-xs font-medium;
-}
-
-.card-button {
-    @apply bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-2 rounded-lg hover:from-blue-600 hover:to-purple-700 font-medium;
-}`,
-        'glassmorphism': `<!-- Glassmorphism Card CSS -->
-.card-item {
-    @apply bg-white bg-opacity-20 backdrop-blur-lg rounded-2xl shadow-2xl border border-white border-opacity-30 hover:bg-opacity-30;
-}
-
-.card-badge {
-    @apply bg-white bg-opacity-30 text-gray-800 rounded-full px-3 py-1 text-xs font-medium backdrop-blur-sm;
-}
-
-.card-button {
-    @apply bg-white bg-opacity-30 text-gray-800 px-6 py-2 rounded-full hover:bg-opacity-50 backdrop-blur-sm;
-}`,
-        'neumorphism': `<!-- Neumorphism Card CSS -->
-.card-item {
-    @apply bg-gray-100 rounded-3xl border-0 hover:shadow-inner;
-    box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
-}
-
-.card-badge {
-    @apply bg-gray-200 text-gray-700 rounded-full px-3 py-1 text-xs font-medium;
-    box-shadow: inset 5px 5px 10px #bebebe, inset -5px -5px 10px #ffffff;
-}
-
-.card-button {
-    @apply bg-gray-200 text-gray-800 px-6 py-2 rounded-full hover:bg-gray-300;
-    box-shadow: 5px 5px 10px #bebebe, -5px -5px 10px #ffffff;
-}`,
-        'dark': `<!-- Dark Card CSS -->
-.card-item {
-    @apply bg-gray-800 rounded-lg shadow-lg hover:shadow-xl border border-gray-700;
-}
-
-.card-badge {
-    @apply bg-purple-600 text-white rounded-full px-3 py-1 text-xs font-medium;
-}
-
-.card-button {
-    @apply bg-purple-600 text-white px-6 py-2 rounded hover:bg-purple-700;
-}`
+    var codeElement = document.getElementById('card-code');
+    var examples = {
+        'default': '<!-- Default Card HTML -->\n&lt;div class="card-item"&gt;\n    &lt;div class="card-image"&gt;\n        &lt;img src="image.jpg" alt="Card Image" style="width: 100%; height: 200px; object-fit: cover;"&gt;\n        &lt;div class="card-badge"&gt;New&lt;/div&gt;\n    &lt;/div&gt;\n    &lt;div class="card-content"&gt;\n        &lt;div class="card-header"&gt;\n            &lt;h3 class="card-title"&gt;Card Title&lt;/h3&gt;\n            &lt;p class="card-subtitle"&gt;Subtitle&lt;/p&gt;\n        &lt;/div&gt;\n        &lt;p class="card-description"&gt;Card description text&lt;/p&gt;\n        &lt;div class="card-footer"&gt;\n            &lt;div class="card-price"&gt;$99.99&lt;/div&gt;\n            &lt;button class="card-button"&gt;Buy Now&lt;/button&gt;\n        &lt;/div&gt;\n    &lt;/div&gt;\n&lt;/div&gt;',
+        'minimalistic': '<!-- Minimalistic Card CSS -->\n.card-minimalistic .card-item {\n    background: white;\n    border: 1px solid #e9ecef;\n    border-radius: 0;\n    box-shadow: none;\n}\n\n.card-minimalistic .card-badge {\n    background: #000;\n    color: white;\n    border-radius: 0;\n    text-transform: uppercase;\n    letter-spacing: 1px;\n}\n\n.card-minimalistic .card-button {\n    background: #000;\n    color: white;\n    border-radius: 0;\n    text-transform: uppercase;\n    letter-spacing: 1px;\n}',
+        'modern': '<!-- Modern Card CSS -->\n.card-modern .card-item {\n    background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);\n    border-radius: 12px;\n    box-shadow: 0 8px 25px rgba(0,0,0,0.1);\n}\n\n.card-modern .card-badge {\n    background: linear-gradient(135deg, #007bff 0%, #6f42c1 100%);\n    color: white;\n    border-radius: 8px;\n    font-weight: 500;\n}\n\n.card-modern .card-button {\n    background: linear-gradient(135deg, #007bff 0%, #6f42c1 100%);\n    color: white;\n    border-radius: 8px;\n    font-weight: 500;\n}',
+        'glassmorphism': '<!-- Glassmorphism Card CSS -->\n.card-glassmorphism .card-item {\n    background: rgba(255,255,255,0.2);\n    backdrop-filter: blur(10px);\n    border-radius: 16px;\n    box-shadow: 0 8px 32px rgba(0,0,0,0.3);\n    border: 1px solid rgba(255,255,255,0.3);\n}\n\n.card-glassmorphism .card-badge {\n    background: rgba(255,255,255,0.3);\n    color: #1a1a1a;\n    border-radius: 20px;\n    backdrop-filter: blur(10px);\n}\n\n.card-glassmorphism .card-button {\n    background: rgba(255,255,255,0.3);\n    color: #1a1a1a;\n    border-radius: 20px;\n    backdrop-filter: blur(10px);\n}',
+        'neumorphism': '<!-- Neumorphism Card CSS -->\n.card-neumorphism .card-item {\n    background: #e0e5ec;\n    border-radius: 25px;\n    box-shadow: 20px 20px 40px #a3b1c6, -20px -20px 40px #ffffff;\n}\n\n.card-neumorphism .card-badge {\n    background: #e0e5ec;\n    color: #495057;\n    border-radius: 20px;\n    box-shadow: inset 5px 5px 10px #a3b1c6, inset -5px -5px 10px #ffffff;\n}\n\n.card-neumorphism .card-button {\n    background: #e0e5ec;\n    color: #1a1a1a;\n    border-radius: 20px;\n    box-shadow: 5px 5px 10px #a3b1c6, -5px -5px 10px #ffffff;\n}',
+        'dark': '<!-- Dark Card CSS -->\n.card-dark .card-item {\n    background: #2d3748;\n    border-radius: 8px;\n    box-shadow: 0 8px 25px rgba(0,0,0,0.3);\n    border: 1px solid #4a5568;\n}\n\n.card-dark .card-badge {\n    background: #6f42c1;\n    color: white;\n    border-radius: 20px;\n}\n\n.card-dark .card-button {\n    background: #6f42c1;\n    color: white;\n    border-radius: 5px;\n}'
     };
 
     codeElement.textContent = examples[style] || examples['default'];
@@ -650,9 +569,35 @@ function updateCodeExample(style) {
 document.addEventListener('DOMContentLoaded', function() {
     switchCardStyle('default');
 
-    setTimeout(() => {
-        showInfo('Card designs loaded! Try different styles to see various card layouts.');
-    }, 1000);
+    // Add button hover effects
+    var buttons = document.querySelectorAll('[id^="card-"]');
+    buttons.forEach(function(btn) {
+        btn.addEventListener('mouseenter', function() {
+            if (this.style.opacity !== '1') {
+                this.style.opacity = '0.9';
+            }
+        });
+
+        btn.addEventListener('mouseleave', function() {
+            if (this.style.opacity !== '1') {
+                this.style.opacity = '0.8';
+            }
+        });
+    });
+
+    // Add card hover effects
+    var cards = document.querySelectorAll('.card-item');
+    cards.forEach(function(card) {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-2px)';
+            this.style.boxShadow = '0 4px 15px rgba(0,0,0,0.15)';
+        });
+
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+            this.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1)';
+        });
+    });
 });
 </script>
 @endsection

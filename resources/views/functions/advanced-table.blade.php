@@ -3,87 +3,84 @@
 @section('title', 'Advanced Table')
 
 @section('content')
-<div class="max-w-7xl mx-auto">
-    <div class="bg-white rounded-lg shadow-md p-6">
-        <h1 class="text-3xl font-bold text-gray-800 mb-6">Advanced Table with Features</h1>
+<div style="max-width: 1200px; margin: 0 auto; padding: 20px;">
+    <div style="background: #ffffff; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); padding: 30px;">
+        <h1 style="font-size: 24px; font-weight: 600; color: #1a1a1a; margin-bottom: 30px; border-bottom: 1px solid #e5e5e5; padding-bottom: 15px;">Employee Management</h1>
 
         <!-- Table Controls -->
-        <div class="mb-6 flex flex-wrap gap-4 items-center justify-between">
-            <div class="flex flex-wrap gap-4 items-center">
-                <div class="flex items-center gap-2">
-                    <label class="text-sm font-medium text-gray-700">Show:</label>
-                    <select id="entriesPerPage" class="border border-gray-300 rounded px-2 py-1 text-sm">
-                        <option value="5">5</option>
-                        <option value="10" selected>10</option>
-                        <option value="25">25</option>
-                        <option value="50">50</option>
-                        <option value="100">100</option>
-                    </select>
-                    <span class="text-sm text-gray-700">entries</span>
-                </div>
-
-                <div class="flex items-center gap-2">
-                    <label class="text-sm font-medium text-gray-700">Filter by Department:</label>
-                    <select id="departmentFilter" class="border border-gray-300 rounded px-2 py-1 text-sm">
-                        <option value="">All Departments</option>
-                        <option value="IT">IT</option>
-                        <option value="HR">HR</option>
-                        <option value="Finance">Finance</option>
-                        <option value="Marketing">Marketing</option>
-                    </select>
-                </div>
-
-                <div class="flex items-center gap-2">
-                    <label class="text-sm font-medium text-gray-700">Status:</label>
-                    <select id="statusFilter" class="border border-gray-300 rounded px-2 py-1 text-sm">
-                        <option value="">All Status</option>
-                        <option value="Active">Active</option>
-                        <option value="Inactive">Inactive</option>
-                    </select>
+        <div style="display: flex; flex-wrap: wrap; gap: 20px; margin-bottom: 30px; align-items: end;">
+            <div style="flex: 1; min-width: 200px;">
+                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                    <div style="min-width: 80px;">
+                        <label style="display: block; font-size: 12px; color: #666; margin-bottom: 5px;">Show:</label>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <select id="entriesPerPage" style="width: 60px; padding: 6px 8px; border: 1px solid #ddd; border-radius: 4px; font-size: 13px; background: white;">
+                                <option value="5">5</option>
+                                <option value="10" selected>10</option>
+                                <option value="25">25</option>
+                                <option value="50">50</option>
+                                <option value="100">100</option>
+                            </select>
+                            <span style="font-size: 12px; color: #888;">entries</span>
+                        </div>
+                    </div>
+                    <div style="min-width: 120px;">
+                        <label style="display: block; font-size: 12px; color: #666; margin-bottom: 5px;">Department:</label>
+                        <select id="departmentFilter" style="width: 100%; padding: 6px 8px; border: 1px solid #ddd; border-radius: 4px; font-size: 13px; background: white;">
+                            <option value="">All</option>
+                            <option value="IT">IT</option>
+                            <option value="HR">HR</option>
+                            <option value="Finance">Finance</option>
+                            <option value="Marketing">Marketing</option>
+                        </select>
+                    </div>
+                    <div style="min-width: 100px;">
+                        <label style="display: block; font-size: 12px; color: #666; margin-bottom: 5px;">Status:</label>
+                        <select id="statusFilter" style="width: 100%; padding: 6px 8px; border: 1px solid #ddd; border-radius: 4px; font-size: 13px; background: white;">
+                            <option value="">All</option>
+                            <option value="Active">Active</option>
+                            <option value="Inactive">Inactive</option>
+                        </select>
+                    </div>
                 </div>
             </div>
-
-            <div class="flex items-center gap-2">
-                <input type="text" id="searchInput" placeholder="Search employees..." class="border border-gray-300 rounded px-3 py-2 text-sm w-64">
-                <button id="exportBtn" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded text-sm">
-                    Export CSV
-                </button>
-                <button id="addEmployeeBtn" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded text-sm">
-                    Add Employee
-                </button>
+            <div style="display: flex; gap: 10px; align-items: center;">
+                <input type="text" id="searchInput" placeholder="Search..." style="padding: 8px 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 13px; width: 200px;">
+                <button id="exportBtn" style="padding: 8px 16px; background: #10b981; color: white; border: none; border-radius: 4px; font-size: 13px; cursor: pointer;">Export</button>
+                <button id="addEmployeeBtn" style="padding: 8px 16px; background: #3b82f6; color: white; border: none; border-radius: 4px; font-size: 13px; cursor: pointer;">Add</button>
             </div>
         </div>
 
         <!-- Table -->
-        <div class="overflow-x-auto">
-            <table class="w-full border-collapse border border-gray-200">
+        <div style="overflow-x: auto; border: 1px solid #e5e5e5; border-radius: 6px;">
+            <table style="width: 100%; border-collapse: collapse; background: white;">
                 <thead>
-                    <tr class="bg-gray-50">
-                        <th class="border border-gray-200 px-4 py-3 text-left">
-                            <input type="checkbox" id="selectAll" class="rounded">
+                    <tr style="background: #f8f9fa; border-bottom: 1px solid #e5e5e5;">
+                        <th style="padding: 12px; text-align: left; width: 50px; font-weight: 500; font-size: 13px; color: #666;">
+                            <input type="checkbox" id="selectAll" style="margin: 0;">
                         </th>
-                        <th class="border border-gray-200 px-4 py-3 text-left cursor-pointer hover:bg-gray-100" onclick="sortTable('id')">
-                            ID <span id="sort-id" class="sort-arrow">↕</span>
+                        <th style="padding: 12px; text-align: left; cursor: pointer; user-select: none; font-weight: 500; font-size: 13px; color: #666;" data-column="id">
+                            ID <span style="font-size: 12px; color: #999; margin-left: 4px;">↕</span>
                         </th>
-                        <th class="border border-gray-200 px-4 py-3 text-left cursor-pointer hover:bg-gray-100" onclick="sortTable('name')">
-                            Name <span id="sort-name" class="sort-arrow">↕</span>
+                        <th style="padding: 12px; text-align: left; cursor: pointer; user-select: none; font-weight: 500; font-size: 13px; color: #666;" data-column="name">
+                            Name <span style="font-size: 12px; color: #999; margin-left: 4px;">↕</span>
                         </th>
-                        <th class="border border-gray-200 px-4 py-3 text-left cursor-pointer hover:bg-gray-100" onclick="sortTable('email')">
-                            Email <span id="sort-email" class="sort-arrow">↕</span>
+                        <th style="padding: 12px; text-align: left; cursor: pointer; user-select: none; font-weight: 500; font-size: 13px; color: #666;" data-column="email">
+                            Email <span style="font-size: 12px; color: #999; margin-left: 4px;">↕</span>
                         </th>
-                        <th class="border border-gray-200 px-4 py-3 text-left cursor-pointer hover:bg-gray-100" onclick="sortTable('department')">
-                            Department <span id="sort-department" class="sort-arrow">↕</span>
+                        <th style="padding: 12px; text-align: left; cursor: pointer; user-select: none; font-weight: 500; font-size: 13px; color: #666;" data-column="department">
+                            Department <span style="font-size: 12px; color: #999; margin-left: 4px;">↕</span>
                         </th>
-                        <th class="border border-gray-200 px-4 py-3 text-left cursor-pointer hover:bg-gray-100" onclick="sortTable('salary')">
-                            Salary <span id="sort-salary" class="sort-arrow">↕</span>
+                        <th style="padding: 12px; text-align: left; cursor: pointer; user-select: none; font-weight: 500; font-size: 13px; color: #666;" data-column="salary">
+                            Salary <span style="font-size: 12px; color: #999; margin-left: 4px;">↕</span>
                         </th>
-                        <th class="border border-gray-200 px-4 py-3 text-left cursor-pointer hover:bg-gray-100" onclick="sortTable('hire_date')">
-                            Hire Date <span id="sort-hire_date" class="sort-arrow">↕</span>
+                        <th style="padding: 12px; text-align: left; cursor: pointer; user-select: none; font-weight: 500; font-size: 13px; color: #666;" data-column="hire_date">
+                            Hire Date <span style="font-size: 12px; color: #999; margin-left: 4px;">↕</span>
                         </th>
-                        <th class="border border-gray-200 px-4 py-3 text-left cursor-pointer hover:bg-gray-100" onclick="sortTable('status')">
-                            Status <span id="sort-status" class="sort-arrow">↕</span>
+                        <th style="padding: 12px; text-align: left; cursor: pointer; user-select: none; font-weight: 500; font-size: 13px; color: #666;" data-column="status">
+                            Status <span style="font-size: 12px; color: #999; margin-left: 4px;">↕</span>
                         </th>
-                        <th class="border border-gray-200 px-4 py-3 text-left">Actions</th>
+                        <th style="padding: 12px; text-align: left; width: 120px; font-weight: 500; font-size: 13px; color: #666;">Actions</th>
                     </tr>
                 </thead>
                 <tbody id="tableBody">
@@ -93,230 +90,205 @@
         </div>
 
         <!-- Pagination -->
-        <div class="mt-4 flex items-center justify-between">
-            <div class="text-sm text-gray-700">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
+            <div style="font-size: 13px; color: #666;">
                 Showing <span id="showingFrom">1</span> to <span id="showingTo">10</span> of <span id="totalEntries">0</span> entries
             </div>
-            <div class="flex items-center gap-2">
-                <button id="prevPage" class="px-3 py-1 border border-gray-300 rounded text-sm hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed">
-                    Previous
-                </button>
-                <div id="pageNumbers" class="flex gap-1">
+            <div style="display: flex; gap: 5px; align-items: center;">
+                <button id="prevPage" style="padding: 6px 12px; border: 1px solid #ddd; background: white; color: #666; border-radius: 4px; font-size: 13px; cursor: pointer;">Previous</button>
+                <div id="pageNumbers" style="display: flex; gap: 2px;">
                     <!-- Page numbers will be populated by JavaScript -->
                 </div>
-                <button id="nextPage" class="px-3 py-1 border border-gray-300 rounded text-sm hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed">
-                    Next
-                </button>
+                <button id="nextPage" style="padding: 6px 12px; border: 1px solid #ddd; background: white; color: #666; border-radius: 4px; font-size: 13px; cursor: pointer;">Next</button>
             </div>
         </div>
 
         <!-- Bulk Actions -->
-        <div id="bulkActions" class="mt-4 p-4 bg-yellow-50 border border-yellow-200 rounded-lg hidden">
-            <div class="flex items-center gap-4">
-                <span class="text-sm font-medium text-yellow-800">
+        <div id="bulkActions" style="display: none; margin-top: 20px; padding: 15px; background: #fef3c7; border: 1px solid #f59e0b; border-radius: 6px;">
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <span style="font-weight: 500; color: #92400e; font-size: 13px;">
                     <span id="selectedCount">0</span> item(s) selected
                 </span>
-                <button id="bulkDeleteBtn" class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded text-sm">
-                    Delete Selected
-                </button>
-                <button id="bulkExportBtn" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm">
-                    Export Selected
-                </button>
-                <button id="bulkUpdateStatusBtn" class="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded text-sm">
-                    Update Status
-                </button>
+                <button id="bulkDeleteBtn" style="padding: 6px 12px; background: #ef4444; color: white; border: none; border-radius: 4px; font-size: 12px; cursor: pointer;">Delete Selected</button>
+                <button id="bulkExportBtn" style="padding: 6px 12px; background: #06b6d4; color: white; border: none; border-radius: 4px; font-size: 12px; cursor: pointer;">Export Selected</button>
+                <button id="bulkUpdateStatusBtn" style="padding: 6px 12px; background: #10b981; color: white; border: none; border-radius: 4px; font-size: 12px; cursor: pointer;">Update Status</button>
             </div>
         </div>
     </div>
 </div>
 
 <!-- Add Employee Modal -->
-<div id="addEmployeeModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
-    <div class="flex items-center justify-center min-h-screen p-4">
-        <div class="bg-white rounded-lg shadow-xl w-full max-w-md">
-            <div class="p-6">
-                <h3 class="text-lg font-semibold mb-4">Add New Employee</h3>
-                <form id="addEmployeeForm">
-                    <div class="space-y-4">
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Name</label>
-                            <input type="text" id="employeeName" class="w-full border border-gray-300 rounded px-3 py-2" required>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                            <input type="email" id="employeeEmail" class="w-full border border-gray-300 rounded px-3 py-2" required>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Department</label>
-                            <select id="employeeDepartment" class="w-full border border-gray-300 rounded px-3 py-2" required>
-                                <option value="">Select Department</option>
-                                <option value="IT">IT</option>
-                                <option value="HR">HR</option>
-                                <option value="Finance">Finance</option>
-                                <option value="Marketing">Marketing</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Salary</label>
-                            <input type="number" id="employeeSalary" class="w-full border border-gray-300 rounded px-3 py-2" required>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Hire Date</label>
-                            <input type="date" id="employeeHireDate" class="w-full border border-gray-300 rounded px-3 py-2" required>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Status</label>
-                            <select id="employeeStatus" class="w-full border border-gray-300 rounded px-3 py-2" required>
-                                <option value="Active">Active</option>
-                                <option value="Inactive">Inactive</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="flex justify-end gap-2 mt-6">
-                        <button type="button" id="cancelAddEmployee" class="px-4 py-2 text-gray-600 hover:text-gray-800">Cancel</button>
-                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">Add Employee</button>
-                    </div>
-                </form>
-            </div>
+<div id="addEmployeeModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; align-items: center; justify-content: center;">
+    <div style="background: white; border-radius: 8px; width: 90%; max-width: 500px; max-height: 90vh; overflow-y: auto;">
+        <div style="padding: 20px; border-bottom: 1px solid #e5e5e5;">
+            <h3 style="margin: 0; font-size: 18px; font-weight: 600; color: #1a1a1a;">Add New Employee</h3>
+            <button type="button" onclick="closeModal()" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 20px; cursor: pointer; color: #999;">&times;</button>
         </div>
+        <form id="addEmployeeForm">
+            <div style="padding: 20px;">
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; font-size: 13px; color: #666; margin-bottom: 5px;">Name</label>
+                    <input type="text" id="employeeName" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px;">
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; font-size: 13px; color: #666; margin-bottom: 5px;">Email</label>
+                    <input type="email" id="employeeEmail" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px;">
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; font-size: 13px; color: #666; margin-bottom: 5px;">Department</label>
+                    <select id="employeeDepartment" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px; background: white;">
+                        <option value="">Select Department</option>
+                        <option value="IT">IT</option>
+                        <option value="HR">HR</option>
+                        <option value="Finance">Finance</option>
+                        <option value="Marketing">Marketing</option>
+                    </select>
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; font-size: 13px; color: #666; margin-bottom: 5px;">Salary</label>
+                    <input type="number" id="employeeSalary" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px;">
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; font-size: 13px; color: #666; margin-bottom: 5px;">Hire Date</label>
+                    <input type="date" id="employeeHireDate" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px;">
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; font-size: 13px; color: #666; margin-bottom: 5px;">Status</label>
+                    <select id="employeeStatus" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px; background: white;">
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
+                    </select>
+                </div>
+            </div>
+            <div style="padding: 20px; border-top: 1px solid #e5e5e5; display: flex; justify-content: flex-end; gap: 10px;">
+                <button type="button" onclick="closeModal()" style="padding: 10px 20px; background: #f3f4f6; color: #666; border: none; border-radius: 4px; font-size: 14px; cursor: pointer;">Cancel</button>
+                <button type="submit" style="padding: 10px 20px; background: #3b82f6; color: white; border: none; border-radius: 4px; font-size: 14px; cursor: pointer;">Add Employee</button>
+            </div>
+        </form>
     </div>
 </div>
 
-<style>
-.sort-arrow {
-    font-size: 0.8rem;
-    color: #6b7280;
-}
-
-.sort-arrow.asc {
-    color: #3b82f6;
-}
-
-.sort-arrow.desc {
-    color: #3b82f6;
-}
-</style>
-
 <script>
-class AdvancedTable {
-    constructor() {
-        this.data = @json($tableData);
-        this.filteredData = [...this.data];
-        this.currentPage = 1;
-        this.entriesPerPage = 10;
-        this.sortColumn = '';
-        this.sortDirection = 'asc';
-        this.selectedItems = new Set();
-        this.init();
+// Advanced Table JavaScript
+document.addEventListener('DOMContentLoaded', function() {
+    // Data from PHP
+    var tableData = @json($tableData);
+    var filteredData = [...tableData];
+    var currentPage = 1;
+    var entriesPerPage = 10;
+    var sortColumn = '';
+    var sortDirection = 'asc';
+    var selectedItems = new Set();
+
+    // Initialize table
+    function init() {
+        bindEvents();
+        renderTable();
+        updatePagination();
     }
 
-    init() {
-        this.bindEvents();
-        this.renderTable();
-        this.updatePagination();
-    }
-
-    bindEvents() {
+    // Bind all event listeners
+    function bindEvents() {
         // Search
-        document.getElementById('searchInput').addEventListener('input', (e) => {
-            this.search(e.target.value);
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            search(e.target.value);
         });
 
         // Filters
-        document.getElementById('departmentFilter').addEventListener('change', () => {
-            this.applyFilters();
-        });
-
-        document.getElementById('statusFilter').addEventListener('change', () => {
-            this.applyFilters();
-        });
+        document.getElementById('departmentFilter').addEventListener('change', applyFilters);
+        document.getElementById('statusFilter').addEventListener('change', applyFilters);
 
         // Entries per page
-        document.getElementById('entriesPerPage').addEventListener('change', (e) => {
-            this.entriesPerPage = parseInt(e.target.value);
-            this.currentPage = 1;
-            this.renderTable();
-            this.updatePagination();
+        document.getElementById('entriesPerPage').addEventListener('change', function(e) {
+            entriesPerPage = parseInt(e.target.value);
+            currentPage = 1;
+            renderTable();
+            updatePagination();
         });
 
         // Select all
-        document.getElementById('selectAll').addEventListener('change', (e) => {
-            this.selectAll(e.target.checked);
+        document.getElementById('selectAll').addEventListener('change', function(e) {
+            selectAll(e.target.checked);
         });
 
         // Pagination
-        document.getElementById('prevPage').addEventListener('click', () => {
-            if (this.currentPage > 1) {
-                this.currentPage--;
-                this.renderTable();
-                this.updatePagination();
+        document.getElementById('prevPage').addEventListener('click', function() {
+            if (currentPage > 1) {
+                currentPage--;
+                renderTable();
+                updatePagination();
             }
         });
 
-        document.getElementById('nextPage').addEventListener('click', () => {
-            const totalPages = Math.ceil(this.filteredData.length / this.entriesPerPage);
-            if (this.currentPage < totalPages) {
-                this.currentPage++;
-                this.renderTable();
-                this.updatePagination();
+        document.getElementById('nextPage').addEventListener('click', function() {
+            var totalPages = Math.ceil(filteredData.length / entriesPerPage);
+            if (currentPage < totalPages) {
+                currentPage++;
+                renderTable();
+                updatePagination();
             }
         });
 
         // Export
-        document.getElementById('exportBtn').addEventListener('click', () => {
-            this.exportCSV();
-        });
+        document.getElementById('exportBtn').addEventListener('click', exportCSV);
 
         // Add employee
-        document.getElementById('addEmployeeBtn').addEventListener('click', () => {
-            this.showAddEmployeeModal();
+        document.getElementById('addEmployeeBtn').addEventListener('click', function() {
+            document.getElementById('addEmployeeModal').style.display = 'flex';
         });
 
-        document.getElementById('cancelAddEmployee').addEventListener('click', () => {
-            this.hideAddEmployeeModal();
-        });
-
-        document.getElementById('addEmployeeForm').addEventListener('submit', (e) => {
+        document.getElementById('addEmployeeForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            this.addEmployee();
+            addEmployee();
         });
 
         // Bulk actions
-        document.getElementById('bulkDeleteBtn').addEventListener('click', () => {
-            this.bulkDelete();
-        });
+        document.getElementById('bulkDeleteBtn').addEventListener('click', bulkDelete);
+        document.getElementById('bulkExportBtn').addEventListener('click', bulkExport);
 
-        document.getElementById('bulkExportBtn').addEventListener('click', () => {
-            this.bulkExport();
+        // Sort headers
+        document.querySelectorAll('th[data-column]').forEach(function(header) {
+            header.addEventListener('click', function() {
+                var column = this.getAttribute('data-column');
+                sortTable(column);
+            });
         });
     }
 
-    search(query) {
+    // Close modal function
+    window.closeModal = function() {
+        document.getElementById('addEmployeeModal').style.display = 'none';
+        document.getElementById('addEmployeeForm').reset();
+    };
+
+    // Search function
+    function search(query) {
         if (!query) {
-            this.applyFilters();
+            applyFilters();
             return;
         }
 
-        this.filteredData = this.data.filter(item =>
-            item.name.toLowerCase().includes(query.toLowerCase()) ||
-            item.email.toLowerCase().includes(query.toLowerCase()) ||
-            item.department.toLowerCase().includes(query.toLowerCase())
-        );
+        filteredData = tableData.filter(function(item) {
+            return item.name.toLowerCase().includes(query.toLowerCase()) ||
+                   item.email.toLowerCase().includes(query.toLowerCase()) ||
+                   item.department.toLowerCase().includes(query.toLowerCase());
+        });
 
-        this.currentPage = 1;
-        this.renderTable();
-        this.updatePagination();
+        currentPage = 1;
+        renderTable();
+        updatePagination();
     }
 
-    applyFilters() {
-        const departmentFilter = document.getElementById('departmentFilter').value;
-        const statusFilter = document.getElementById('statusFilter').value;
-        const searchQuery = document.getElementById('searchInput').value;
+    // Apply filters
+    function applyFilters() {
+        var departmentFilter = document.getElementById('departmentFilter').value;
+        var statusFilter = document.getElementById('statusFilter').value;
+        var searchQuery = document.getElementById('searchInput').value;
 
-        this.filteredData = this.data.filter(item => {
-            const matchesDepartment = !departmentFilter || item.department === departmentFilter;
-            const matchesStatus = !statusFilter || item.status === statusFilter;
-            const matchesSearch = !searchQuery ||
+        filteredData = tableData.filter(function(item) {
+            var matchesDepartment = !departmentFilter || item.department === departmentFilter;
+            var matchesStatus = !statusFilter || item.status === statusFilter;
+            var matchesSearch = !searchQuery ||
                 item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
                 item.email.toLowerCase().includes(searchQuery.toLowerCase()) ||
                 item.department.toLowerCase().includes(searchQuery.toLowerCase());
@@ -324,284 +296,291 @@ class AdvancedTable {
             return matchesDepartment && matchesStatus && matchesSearch;
         });
 
-        this.currentPage = 1;
-        this.renderTable();
-        this.updatePagination();
+        currentPage = 1;
+        renderTable();
+        updatePagination();
     }
 
-    sortTable(column) {
-        if (this.sortColumn === column) {
-            this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
+    // Sort table
+    function sortTable(column) {
+        if (sortColumn === column) {
+            sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
         } else {
-            this.sortColumn = column;
-            this.sortDirection = 'asc';
+            sortColumn = column;
+            sortDirection = 'asc';
         }
 
-        this.filteredData.sort((a, b) => {
-            let aValue = a[column];
-            let bValue = b[column];
+        filteredData.sort(function(a, b) {
+            var aValue = a[column];
+            var bValue = b[column];
 
             if (column === 'salary') {
                 aValue = parseInt(aValue);
                 bValue = parseInt(bValue);
             }
 
-            if (this.sortDirection === 'asc') {
+            if (sortDirection === 'asc') {
                 return aValue > bValue ? 1 : -1;
             } else {
                 return aValue < bValue ? 1 : -1;
             }
         });
 
-        this.updateSortArrows();
-        this.renderTable();
+        updateSortArrows();
+        renderTable();
     }
 
-    updateSortArrows() {
+    // Update sort arrows
+    function updateSortArrows() {
         // Reset all arrows
-        document.querySelectorAll('.sort-arrow').forEach(arrow => {
-            arrow.className = 'sort-arrow';
+        document.querySelectorAll('th[data-column] span').forEach(function(arrow) {
             arrow.textContent = '↕';
+            arrow.style.color = '#999';
         });
 
         // Update current column arrow
-        if (this.sortColumn) {
-            const arrow = document.getElementById(`sort-${this.sortColumn}`);
+        if (sortColumn) {
+            var arrow = document.querySelector('th[data-column="' + sortColumn + '"] span');
             if (arrow) {
-                arrow.className = `sort-arrow ${this.sortDirection}`;
-                arrow.textContent = this.sortDirection === 'asc' ? '↑' : '↓';
+                arrow.textContent = sortDirection === 'asc' ? '↑' : '↓';
+                arrow.style.color = '#3b82f6';
             }
         }
     }
 
-    renderTable() {
-        const startIndex = (this.currentPage - 1) * this.entriesPerPage;
-        const endIndex = startIndex + this.entriesPerPage;
-        const pageData = this.filteredData.slice(startIndex, endIndex);
+    // Render table
+    function renderTable() {
+        var startIndex = (currentPage - 1) * entriesPerPage;
+        var endIndex = startIndex + entriesPerPage;
+        var pageData = filteredData.slice(startIndex, endIndex);
 
-        const tbody = document.getElementById('tableBody');
+        var tbody = document.getElementById('tableBody');
         tbody.innerHTML = '';
 
-        pageData.forEach(item => {
-            const row = document.createElement('tr');
-            row.className = 'hover:bg-gray-50';
-            row.innerHTML = `
-                <td class="border border-gray-200 px-4 py-3">
-                    <input type="checkbox" class="rounded row-checkbox" data-id="${item.id}">
-                </td>
-                <td class="border border-gray-200 px-4 py-3">${item.id}</td>
-                <td class="border border-gray-200 px-4 py-3 font-medium">${item.name}</td>
-                <td class="border border-gray-200 px-4 py-3">${item.email}</td>
-                <td class="border border-gray-200 px-4 py-3">
-                    <span class="px-2 py-1 rounded text-xs ${this.getDepartmentColor(item.department)}">${item.department}</span>
-                </td>
-                <td class="border border-gray-200 px-4 py-3">$${item.salary.toLocaleString()}</td>
-                <td class="border border-gray-200 px-4 py-3">${item.hire_date}</td>
-                <td class="border border-gray-200 px-4 py-3">
-                    <span class="px-2 py-1 rounded text-xs ${item.status === 'Active' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}">${item.status}</span>
-                </td>
-                <td class="border border-gray-200 px-4 py-3">
-                    <div class="flex gap-2">
-                        <button onclick="editEmployee(${item.id})" class="text-blue-600 hover:text-blue-800 text-sm">Edit</button>
-                        <button onclick="deleteEmployee(${item.id})" class="text-red-600 hover:text-red-800 text-sm">Delete</button>
-                    </div>
-                </td>
-            `;
+        pageData.forEach(function(item) {
+            var row = document.createElement('tr');
+            row.style.borderBottom = '1px solid #f0f0f0';
+            row.innerHTML =
+                '<td style="padding: 12px;"><input type="checkbox" class="row-checkbox" value="' + item.id + '" style="margin: 0;"></td>' +
+                '<td style="padding: 12px; font-size: 13px; color: #666;">' + item.id + '</td>' +
+                '<td style="padding: 12px; font-size: 13px; color: #1a1a1a; font-weight: 500;">' + item.name + '</td>' +
+                '<td style="padding: 12px; font-size: 13px; color: #666;">' + item.email + '</td>' +
+                '<td style="padding: 12px;"><span style="' + getDepartmentStyle(item.department) + '">' + item.department + '</span></td>' +
+                '<td style="padding: 12px; font-size: 13px; color: #1a1a1a; font-weight: 500;">$' + parseInt(item.salary).toLocaleString() + '</td>' +
+                '<td style="padding: 12px; font-size: 13px; color: #666;">' + item.hire_date + '</td>' +
+                '<td style="padding: 12px;"><span style="' + getStatusStyle(item.status) + '">' + item.status + '</span></td>' +
+                '<td style="padding: 12px;">' +
+                    '<button onclick="editEmployee(' + item.id + ')" style="padding: 4px 8px; background: none; border: 1px solid #ddd; color: #666; border-radius: 3px; font-size: 12px; cursor: pointer; margin-right: 5px;">Edit</button>' +
+                    '<button onclick="deleteEmployee(' + item.id + ')" style="padding: 4px 8px; background: none; border: 1px solid #ef4444; color: #ef4444; border-radius: 3px; font-size: 12px; cursor: pointer;">Delete</button>' +
+                '</td>';
+
             tbody.appendChild(row);
         });
 
         // Bind checkbox events
-        document.querySelectorAll('.row-checkbox').forEach(checkbox => {
-            checkbox.addEventListener('change', (e) => {
-                const id = parseInt(e.target.dataset.id);
-                if (e.target.checked) {
-                    this.selectedItems.add(id);
+        document.querySelectorAll('.row-checkbox').forEach(function(checkbox) {
+            checkbox.addEventListener('change', function() {
+                var itemId = parseInt(this.value);
+                if (this.checked) {
+                    selectedItems.add(itemId);
                 } else {
-                    this.selectedItems.delete(id);
+                    selectedItems.delete(itemId);
                 }
-                this.updateBulkActions();
+                updateBulkActions();
             });
         });
+
+        // Update showing info
+        document.getElementById('showingFrom').textContent = startIndex + 1;
+        document.getElementById('showingTo').textContent = Math.min(endIndex, filteredData.length);
+        document.getElementById('totalEntries').textContent = filteredData.length;
     }
 
-    getDepartmentColor(department) {
-        const colors = {
-            'IT': 'bg-blue-100 text-blue-800',
-            'HR': 'bg-purple-100 text-purple-800',
-            'Finance': 'bg-green-100 text-green-800',
-            'Marketing': 'bg-yellow-100 text-yellow-800'
+    // Get department style
+    function getDepartmentStyle(department) {
+        var styles = {
+            'IT': 'background: #dbeafe; color: #1d4ed8; padding: 4px 8px; border-radius: 12px; font-size: 12px; font-weight: 500;',
+            'HR': 'background: #e0e7ff; color: #6366f1; padding: 4px 8px; border-radius: 12px; font-size: 12px; font-weight: 500;',
+            'Finance': 'background: #dcfce7; color: #16a34a; padding: 4px 8px; border-radius: 12px; font-size: 12px; font-weight: 500;',
+            'Marketing': 'background: #fef3c7; color: #d97706; padding: 4px 8px; border-radius: 12px; font-size: 12px; font-weight: 500;'
         };
-        return colors[department] || 'bg-gray-100 text-gray-800';
+        return styles[department] || 'background: #f3f4f6; color: #6b7280; padding: 4px 8px; border-radius: 12px; font-size: 12px; font-weight: 500;';
     }
 
-    updatePagination() {
-        const totalPages = Math.ceil(this.filteredData.length / this.entriesPerPage);
-        const startIndex = (this.currentPage - 1) * this.entriesPerPage;
-        const endIndex = Math.min(startIndex + this.entriesPerPage, this.filteredData.length);
+    // Get status style
+    function getStatusStyle(status) {
+        return status === 'Active'
+            ? 'background: #dcfce7; color: #16a34a; padding: 4px 8px; border-radius: 12px; font-size: 12px; font-weight: 500;'
+            : 'background: #f3f4f6; color: #6b7280; padding: 4px 8px; border-radius: 12px; font-size: 12px; font-weight: 500;';
+    }
 
-        document.getElementById('showingFrom').textContent = this.filteredData.length > 0 ? startIndex + 1 : 0;
-        document.getElementById('showingTo').textContent = endIndex;
-        document.getElementById('totalEntries').textContent = this.filteredData.length;
+    // Update pagination
+    function updatePagination() {
+        var totalPages = Math.ceil(filteredData.length / entriesPerPage);
 
-        document.getElementById('prevPage').disabled = this.currentPage === 1;
-        document.getElementById('nextPage').disabled = this.currentPage === totalPages;
+        // Update button states
+        document.getElementById('prevPage').disabled = currentPage === 1;
+        document.getElementById('nextPage').disabled = currentPage === totalPages;
 
         // Update page numbers
-        const pageNumbers = document.getElementById('pageNumbers');
+        var pageNumbers = document.getElementById('pageNumbers');
         pageNumbers.innerHTML = '';
 
-        for (let i = 1; i <= totalPages; i++) {
-            if (i === 1 || i === totalPages || (i >= this.currentPage - 1 && i <= this.currentPage + 1)) {
-                const button = document.createElement('button');
-                button.textContent = i;
-                button.className = `px-3 py-1 border border-gray-300 rounded text-sm hover:bg-gray-50 ${i === this.currentPage ? 'bg-blue-600 text-white' : ''}`;
-                button.addEventListener('click', () => {
-                    this.currentPage = i;
-                    this.renderTable();
-                    this.updatePagination();
-                });
-                pageNumbers.appendChild(button);
-            } else if (i === this.currentPage - 2 || i === this.currentPage + 2) {
-                const span = document.createElement('span');
-                span.textContent = '...';
-                span.className = 'px-2 py-1 text-gray-500';
-                pageNumbers.appendChild(span);
-            }
-        }
-    }
+        for (var i = 1; i <= totalPages; i++) {
+            var pageBtn = document.createElement('button');
+            pageBtn.textContent = i;
+            pageBtn.style.padding = '6px 10px';
+            pageBtn.style.border = '1px solid #ddd';
+            pageBtn.style.borderRadius = '4px';
+            pageBtn.style.fontSize = '13px';
+            pageBtn.style.cursor = 'pointer';
+            pageBtn.style.margin = '0 1px';
 
-    selectAll(checked) {
-        const checkboxes = document.querySelectorAll('.row-checkbox');
-        checkboxes.forEach(checkbox => {
-            checkbox.checked = checked;
-            const id = parseInt(checkbox.dataset.id);
-            if (checked) {
-                this.selectedItems.add(id);
+            if (i === currentPage) {
+                pageBtn.style.background = '#3b82f6';
+                pageBtn.style.color = 'white';
+                pageBtn.style.borderColor = '#3b82f6';
             } else {
-                this.selectedItems.delete(id);
+                pageBtn.style.background = 'white';
+                pageBtn.style.color = '#666';
+                pageBtn.onclick = function(page) {
+                    return function() {
+                        currentPage = page;
+                        renderTable();
+                        updatePagination();
+                    };
+                }(i);
             }
-        });
-        this.updateBulkActions();
-    }
 
-    updateBulkActions() {
-        const bulkActions = document.getElementById('bulkActions');
-        const selectedCount = document.getElementById('selectedCount');
-
-        if (this.selectedItems.size > 0) {
-            bulkActions.classList.remove('hidden');
-            selectedCount.textContent = this.selectedItems.size;
-        } else {
-            bulkActions.classList.add('hidden');
+            pageNumbers.appendChild(pageBtn);
         }
     }
 
-    exportCSV() {
-        const csvContent = this.generateCSV(this.filteredData);
-        this.downloadCSV(csvContent, 'employees.csv');
-        showSuccess('Data exported successfully!');
-    }
-
-    generateCSV(data) {
-        const headers = ['ID', 'Name', 'Email', 'Department', 'Salary', 'Hire Date', 'Status'];
-        let csv = headers.join(',') + '\n';
-
-        data.forEach(item => {
-            const row = [
-                item.id,
-                `"${item.name}"`,
-                `"${item.email}"`,
-                `"${item.department}"`,
-                item.salary,
-                item.hire_date,
-                item.status
-            ];
-            csv += row.join(',') + '\n';
+    // Select all function
+    function selectAll(checked) {
+        var checkboxes = document.querySelectorAll('.row-checkbox');
+        checkboxes.forEach(function(checkbox) {
+            checkbox.checked = checked;
+            var itemId = parseInt(checkbox.value);
+            if (checked) {
+                selectedItems.add(itemId);
+            } else {
+                selectedItems.delete(itemId);
+            }
         });
-
-        return csv;
+        updateBulkActions();
     }
 
-    downloadCSV(content, filename) {
-        const blob = new Blob([content], { type: 'text/csv;charset=utf-8;' });
-        const link = document.createElement('a');
-        const url = URL.createObjectURL(blob);
-        link.setAttribute('href', url);
-        link.setAttribute('download', filename);
-        link.style.visibility = 'hidden';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+    // Update bulk actions
+    function updateBulkActions() {
+        var bulkActions = document.getElementById('bulkActions');
+        var selectedCount = document.getElementById('selectedCount');
+
+        if (selectedItems.size > 0) {
+            bulkActions.style.display = 'block';
+            selectedCount.textContent = selectedItems.size;
+        } else {
+            bulkActions.style.display = 'none';
+        }
     }
 
-    showAddEmployeeModal() {
-        document.getElementById('addEmployeeModal').classList.remove('hidden');
-    }
+    // Add employee
+    function addEmployee() {
+        var name = document.getElementById('employeeName').value;
+        var email = document.getElementById('employeeEmail').value;
+        var department = document.getElementById('employeeDepartment').value;
+        var salary = document.getElementById('employeeSalary').value;
+        var hireDate = document.getElementById('employeeHireDate').value;
+        var status = document.getElementById('employeeStatus').value;
 
-    hideAddEmployeeModal() {
-        document.getElementById('addEmployeeModal').classList.add('hidden');
-        document.getElementById('addEmployeeForm').reset();
-    }
-
-    addEmployee() {
-        const newEmployee = {
-            id: Math.max(...this.data.map(item => item.id)) + 1,
-            name: document.getElementById('employeeName').value,
-            email: document.getElementById('employeeEmail').value,
-            department: document.getElementById('employeeDepartment').value,
-            salary: parseInt(document.getElementById('employeeSalary').value),
-            hire_date: document.getElementById('employeeHireDate').value,
-            status: document.getElementById('employeeStatus').value
+        var newEmployee = {
+            id: tableData.length + 1,
+            name: name,
+            email: email,
+            department: department,
+            salary: salary,
+            hire_date: hireDate,
+            status: status
         };
 
-        this.data.push(newEmployee);
-        this.applyFilters();
-        this.hideAddEmployeeModal();
-        showSuccess('Employee added successfully!');
+        tableData.push(newEmployee);
+        applyFilters();
+        closeModal();
+        alert('Employee added successfully!');
     }
 
-    bulkDelete() {
-        if (confirm(`Are you sure you want to delete ${this.selectedItems.size} selected items?`)) {
-            this.data = this.data.filter(item => !this.selectedItems.has(item.id));
-            this.selectedItems.clear();
-            this.applyFilters();
-            showSuccess('Selected items deleted successfully!');
+    // Edit employee
+    window.editEmployee = function(id) {
+        var employee = tableData.find(function(emp) { return emp.id === id; });
+        if (employee) {
+            alert('Edit functionality would be implemented here for: ' + employee.name);
+        }
+    };
+
+    // Delete employee
+    window.deleteEmployee = function(id) {
+        if (confirm('Are you sure you want to delete this employee?')) {
+            tableData = tableData.filter(function(emp) { return emp.id !== id; });
+            applyFilters();
+            alert('Employee deleted successfully!');
+        }
+    };
+
+    // Export CSV
+    function exportCSV() {
+        var csv = 'ID,Name,Email,Department,Salary,Hire Date,Status\n';
+        filteredData.forEach(function(item) {
+            csv += item.id + ',' + item.name + ',' + item.email + ',' + item.department + ',' + item.salary + ',' + item.hire_date + ',' + item.status + '\n';
+        });
+
+        var blob = new Blob([csv], { type: 'text/csv' });
+        var url = window.URL.createObjectURL(blob);
+        var a = document.createElement('a');
+        a.href = url;
+        a.download = 'employees.csv';
+        a.click();
+        window.URL.revokeObjectURL(url);
+    }
+
+    // Bulk delete
+    function bulkDelete() {
+        if (selectedItems.size === 0) return;
+
+        if (confirm('Are you sure you want to delete ' + selectedItems.size + ' selected items?')) {
+            tableData = tableData.filter(function(item) {
+                return !selectedItems.has(item.id);
+            });
+            selectedItems.clear();
+            applyFilters();
+            updateBulkActions();
+            alert('Selected employees deleted successfully!');
         }
     }
 
-    bulkExport() {
-        const selectedData = this.data.filter(item => this.selectedItems.has(item.id));
-        const csvContent = this.generateCSV(selectedData);
-        this.downloadCSV(csvContent, 'selected_employees.csv');
-        showSuccess('Selected data exported successfully!');
+    // Bulk export
+    function bulkExport() {
+        if (selectedItems.size === 0) return;
+
+        var selectedData = tableData.filter(function(item) {
+            return selectedItems.has(item.id);
+        });
+
+        var csv = 'ID,Name,Email,Department,Salary,Hire Date,Status\n';
+        selectedData.forEach(function(item) {
+            csv += item.id + ',' + item.name + ',' + item.email + ',' + item.department + ',' + item.salary + ',' + item.hire_date + ',' + item.status + '\n';
+        });
+
+        var blob = new Blob([csv], { type: 'text/csv' });
+        var url = window.URL.createObjectURL(blob);
+        var a = document.createElement('a');
+        a.href = url;
+        a.download = 'selected_employees.csv';
+        a.click();
+        window.URL.revokeObjectURL(url);
     }
-}
 
-// Global functions
-function sortTable(column) {
-    table.sortTable(column);
-}
-
-function editEmployee(id) {
-    showInfo(`Edit employee ${id} (functionality to be implemented)`);
-}
-
-function deleteEmployee(id) {
-    if (confirm('Are you sure you want to delete this employee?')) {
-        table.data = table.data.filter(item => item.id !== id);
-        table.applyFilters();
-        showSuccess('Employee deleted successfully!');
-    }
-}
-
-// Initialize table
-let table;
-document.addEventListener('DOMContentLoaded', function() {
-    table = new AdvancedTable();
-
-    setTimeout(() => {
-        showInfo('Advanced table loaded with sorting, filtering, and export features!');
-    }, 1000);
+    // Initialize the table
+    init();
 });
 </script>
 @endsection
