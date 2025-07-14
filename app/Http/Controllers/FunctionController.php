@@ -312,6 +312,44 @@ class FunctionController extends Controller
         return view('functions.color-picker');
     }
 
+    public function cardDesigns()
+    {
+        $cardData = [
+            [
+                'title' => 'Product Card',
+                'subtitle' => 'Featured Item',
+                'description' => 'This is a sample product card with image and description.',
+                'image' => 'https://picsum.photos/300/200?random=1',
+                'price' => '$99.99',
+                'badge' => 'New',
+                'rating' => 4.5,
+                'tags' => ['Popular', 'Trending']
+            ],
+            [
+                'title' => 'Service Card',
+                'subtitle' => 'Premium Service',
+                'description' => 'Professional service offering with detailed information.',
+                'image' => 'https://picsum.photos/300/200?random=2',
+                'price' => '$199.99',
+                'badge' => 'Best Seller',
+                'rating' => 4.8,
+                'tags' => ['Professional', 'Quality']
+            ],
+            [
+                'title' => 'Portfolio Card',
+                'subtitle' => 'Creative Work',
+                'description' => 'Showcase your creative work with this portfolio card.',
+                'image' => 'https://picsum.photos/300/200?random=3',
+                'price' => 'Free',
+                'badge' => 'Featured',
+                'rating' => 4.2,
+                'tags' => ['Creative', 'Design']
+            ]
+        ];
+
+        return view('functions.card-designs', compact('cardData'));
+    }
+
     // Container utility functions
     public function containerLayouts()
     {
@@ -445,6 +483,7 @@ class FunctionController extends Controller
             ['name' => 'Calculator', 'route' => 'functions.calculator', 'description' => 'Basic calculator functionality'],
             ['name' => 'QR Generator', 'route' => 'functions.qr-generator', 'description' => 'Generate QR codes for URLs and text'],
             ['name' => 'Color Picker', 'route' => 'functions.color-picker', 'description' => 'Select and customize colors'],
+            ['name' => 'Card Designs', 'route' => 'functions.card-designs', 'description' => 'Various card layout designs and styles'],
             ['name' => 'Container Layouts', 'route' => 'functions.container-layouts', 'description' => 'Various container layout examples'],
             ['name' => 'Flexbox Container', 'route' => 'functions.flexbox-container', 'description' => 'Responsive flexbox container'],
             ['name' => 'Grid Container', 'route' => 'functions.grid-container', 'description' => 'CSS grid layout examples'],

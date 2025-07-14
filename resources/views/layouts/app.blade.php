@@ -493,6 +493,23 @@
                           class="whitespace-nowrap">Color Picker</span>
                     <div x-show="sidebarCollapsed" class="sidebar-tooltip">Color Picker</div>
                 </a>
+                <a href="{{ route('functions.card-designs') }}"
+                   class="flex items-center p-2 text-gray-700 rounded-lg hover:bg-gray-100 transition-all duration-200 group relative"
+                   :class="sidebarCollapsed ? 'justify-center sidebar-item-collapsed' : 'space-x-3'"
+                   @click="if (window.innerWidth < 768) sidebarOpen = false">
+                    <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                    </svg>
+                    <span x-show="!sidebarCollapsed"
+                          x-transition:enter="transition-all duration-300 delay-600"
+                          x-transition:enter-start="opacity-0 transform translate-x-2"
+                          x-transition:enter-end="opacity-100 transform translate-x-0"
+                          x-transition:leave="transition-all duration-150"
+                          x-transition:leave-start="opacity-100 transform translate-x-0"
+                          x-transition:leave-end="opacity-0 transform translate-x-2"
+                          class="whitespace-nowrap">Card Designs</span>
+                    <div x-show="sidebarCollapsed" class="sidebar-tooltip">Card Designs</div>
+                </a>
             </div>
 
             <!-- Container Utilities -->

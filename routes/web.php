@@ -31,6 +31,7 @@ Route::get('/qr-code', [FunctionController::class, 'qrCode'])->name('functions.q
 Route::get('/qr-generator', [FunctionController::class, 'qrGenerator'])->name('functions.qr-generator');
 Route::get('/calculator', [FunctionController::class, 'calculator'])->name('functions.calculator');
 Route::get('/color-picker', [FunctionController::class, 'colorPicker'])->name('functions.color-picker');
+Route::get('/card-designs', [FunctionController::class, 'cardDesigns'])->name('functions.card-designs');
 
 // Container utility routes
 Route::get('/container-layouts', [FunctionController::class, 'containerLayouts'])->name('functions.container-layouts');
